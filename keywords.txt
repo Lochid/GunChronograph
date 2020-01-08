@@ -7,18 +7,24 @@
 #######################################
 
 Iterator    KEYWORD1
+Photoresistor    KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-getIteration	    KEYWORD2
-getProgress 	    KEYWORD2
-getCompleteStatus	KEYWORD2
-next            	KEYWORD2
-reset       		KEYWORD2
+getIteration	        KEYWORD2
+getProgress 	        KEYWORD2
+getCompleteStatus	    KEYWORD2
+next            	    KEYWORD2
+reset       		    KEYWORD2
+getSetupProgress       	KEYWORD2
+getCompleteSetupStatus  KEYWORD2
+getMiddleValue       	KEYWORD2
+setValue       		    KEYWORD2
+nextSetup       		KEYWORD2
+checkTurnOff       		KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
 #######################################
-
