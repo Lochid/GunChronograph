@@ -6,9 +6,17 @@
 # Datatypes (KEYWORD1)
 #######################################
 
+Iterator    KEYWORD1
+
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
+
+getIteration	    KEYWORD2
+getProgress 	    KEYWORD2
+getCompleteStatus	KEYWORD2
+next            	KEYWORD2
+reset       		KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
