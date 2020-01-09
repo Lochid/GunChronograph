@@ -7,7 +7,7 @@
 class Photoresistor: CountDown
 {
 private:
-    Iterator _iterator = Iterator(0);
+    Iterator* _iterator;
     unsigned long _fullValue;
     double _middleValue;
     char _port;

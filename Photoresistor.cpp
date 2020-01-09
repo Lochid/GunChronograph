@@ -2,12 +2,12 @@
 
 void Photoresistor::setMiddleValue()
 {
-    _middleValue = (double)_fullValue / _iterator.getIteration();
+    _middleValue = (double)_fullValue / _iterator->getIteration();
 }
 
 Photoresistor::Photoresistor(char port, unsigned int maximalSetupIteration, unsigned int lightPercent)
 {
-    _iterator = Iterator(maximalSetupIteration);
+    _iterator = new Iterator(maximalSetupIteration);
     _fullValue = 0.0;
     _middleValue = 0.0;
     _lightPercent = lightPercent;
@@ -15,12 +15,12 @@ Photoresistor::Photoresistor(char port, unsigned int maximalSetupIteration, unsi
 
 double Photoresistor::getProgress()
 {
-    return _iterator.getProgress();
+    return _iterator->getProgress();
 }
 
 bool Photoresistor::getCompleteSetupStatus()
 {
-    return _iterator.getCompleteStatus();
+    return _iterator->getCompleteStatus();
 }
 
 double Photoresistor::getMiddleValue()
@@ -31,7 +31,7 @@ double Photoresistor::getMiddleValue()
 void Photoresistor::setValue(double val)
 {
     _fullValue += val;
-    _iterator.next();
+    _iterator->next();
     setMiddleValue();
 }
 
@@ -43,7 +43,7 @@ void Photoresistor::nextSetup()
 
 void Photoresistor::reset()
 {
-    _iterator.reset();
+    _iterator->reset();
     _fullValue = 0.0;
     _middleValue = 0.0;
 }

@@ -8,11 +8,11 @@
 class CountDownLCD : CountDown
 {
 private:
-    LiquidCrystal_I2C _lcd = LiquidCrystal_I2C(0x27, 16, 2);
-    CountDown _countDown;
+    LiquidCrystal_I2C *_lcd;
+    CountDown *_countDown;
 
 public:
-    CountDownLCD(LiquidCrystal_I2C lcd, CountDown countDown)
+    CountDownLCD(LiquidCrystal_I2C *lcd, CountDown *countDown)
     {
         _lcd = lcd;
         _countDown = countDown;
@@ -20,10 +20,10 @@ public:
 
     printCountDown()
     {
-        _lcd.setCursor(0, 0);
-        double progress = _countDown.getProgress();
-        _lcd.print((int)progress);
-        _lcd.print("%");
+        _lcd->setCursor(0, 0);
+        double progress = _countDown->getProgress();
+        _lcd->print((int)progress);
+        _lcd->print("%");
     }
 };
 
