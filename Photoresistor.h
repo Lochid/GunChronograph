@@ -4,7 +4,7 @@
 #ifndef Photoresistor_h
 #define Photoresistor_h
 
-class Photoresistor
+class Photoresistor: CountDown
 {
 private:
     Iterator _iterator = Iterator(0);
@@ -17,7 +17,7 @@ private:
 
 public:
     Photoresistor(char port, unsigned int maximalSetupIteration, unsigned int lightPercent);
-    double getSetupProgress();
+    double getProgress();
     bool getCompleteSetupStatus();
     double getMiddleValue();
     void setValue(double val);

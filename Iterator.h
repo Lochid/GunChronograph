@@ -1,7 +1,9 @@
+#include "CountDown.h"
+
 #ifndef Iterator_h
 #define Iterator_h
 
-class Iterator
+class Iterator: CountDown
 {
 private:
     unsigned int _iteration;

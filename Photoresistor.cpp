@@ -13,7 +13,7 @@ Photoresistor::Photoresistor(char port, unsigned int maximalSetupIteration, unsi
     _lightPercent = lightPercent;
 }
 
-double Photoresistor::getSetupProgress()
+double Photoresistor::getProgress()
 {
     return _iterator.getProgress();
 }
