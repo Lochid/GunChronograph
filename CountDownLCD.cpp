@@ -1,6 +1,6 @@
 #include "CountDownLCD.h"
 
-CountDownLCD::CountDownLCD(LiquidCrystal_I2C *lcd, CountDown *countDown)
+CountDownLCD::CountDownLCD(LiquidCrystal_I2C *lcd, Partial *countDown)
 {
     _lcd = lcd;
     _countDown = countDown;
@@ -9,7 +9,7 @@ CountDownLCD::CountDownLCD(LiquidCrystal_I2C *lcd, CountDown *countDown)
 CountDownLCD::printCountDown()
 {
     _lcd->setCursor(0, 0);
-    double progress = _countDown->getProgress();
+    double progress = _countDown->getPartValue();
     _lcd->print((int)progress);
     _lcd->print("%");
 }

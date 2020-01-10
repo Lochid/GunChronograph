@@ -1,9 +1,9 @@
-#include "CountDown.h"
+#include "Partial.h"
 
 #ifndef Iterator_h
 #define Iterator_h
 
-class Iterator: CountDown
+class Iterator: Partial
 {
 private:
     unsigned int _iteration;
@@ -17,7 +17,7 @@ private:
 public:
     Iterator(unsigned int maximalIteration);
     unsigned int getIteration();
-    double getProgress();
+    double getPartValue();
     bool getCompleteStatus();
     void next();
     void reset();

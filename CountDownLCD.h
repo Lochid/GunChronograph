@@ -1,5 +1,5 @@
 #include <LiquidCrystal_I2C.h>
-#include "CountDown.h"
+#include "Partial.h"
 
 #ifndef CountDownLCD_h
 #define CountDownLCD_h
@@ -8,10 +8,10 @@ class CountDownLCD
 {
 private:
     LiquidCrystal_I2C *_lcd;
-    CountDown *_countDown;
+    Partial *_countDown;
 
 public:
-    CountDownLCD(LiquidCrystal_I2C *lcd, CountDown *countDown);
+    CountDownLCD(LiquidCrystal_I2C *lcd, Partial *countDown);
     printCountDown();
 };
 

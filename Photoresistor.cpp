@@ -13,9 +13,9 @@ Photoresistor::Photoresistor(char port, unsigned int maximalSetupIteration, unsi
     _lightPercent = lightPercent;
 }
 
-double Photoresistor::getProgress()
+double Photoresistor::getPartValue()
 {
-    return _iterator->getProgress();
+    return _iterator->getPartValue();
 }
 
 bool Photoresistor::getCompleteSetupStatus()

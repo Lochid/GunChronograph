@@ -1,10 +1,11 @@
 #include <Arduino.h>
+#include "Partial.h"
 #include "Iterator.h"
 
 #ifndef Photoresistor_h
 #define Photoresistor_h
 
-class Photoresistor: CountDown
+class Photoresistor: Partial
 {
 private:
     Iterator* _iterator;
@@ -17,7 +18,7 @@ private:
 
 public:
     Photoresistor(char port, unsigned int maximalSetupIteration, unsigned int lightPercent);
-    double getProgress();
+    double getPartValue();
     bool getCompleteSetupStatus();
     double getMiddleValue();
     void setValue(double val);
