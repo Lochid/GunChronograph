@@ -6,9 +6,11 @@
 #include "Photoresistor.h"
 #include "Potentiometer.h"
 #include "PartialLCD.h"
+#include "SpeedLCD.h"
 
 #ifndef GunChronograph_h
 #define GunChronograph_h
+#define tubeLength 160000.0
 
 class GunChronograph : Partial
 {
@@ -18,12 +20,16 @@ private:
     Potentiometer *_potentiometer;
     LiquidCrystal_I2C *_lcd;
     PartialLCD *_partialLCD;
+    SpeedLCD *_speedLCD;
+    unsigned long _startTime = 0;
+    unsigned long _endTime = 0;
 
 public:
     initLCD(uint8_t lcd_addr, uint8_t lcd_cols, uint8_t lcd_rows, uint8_t charsize = LCD_5x8DOTS)
     {
         _lcd = new LiquidCrystal_I2C(lcd_addr, lcd_cols, lcd_rows, charsize);
         _partialLCD = new PartialLCD(_lcd);
+        _speedLCD = new SpeedLCD(_lcd);
     }
 
     initPhotoresistors(uint8_t firstPort, uint8_t secondPort, unsigned int maximalSetupIteration)
@@ -59,7 +65,7 @@ public:
 
     double getPartValue()
     {
-        if(this->getCompleteSetupStatus())
+        if (this->getCompleteSetupStatus())
         {
             return _potentiometer->getPartValue();
         }
@@ -70,6 +76,24 @@ public:
     bool getCompleteSetupStatus()
     {
         return _firstPhotoresistor->getCompleteSetupStatus() && _secondPhotoresistor->getCompleteSetupStatus();
+    }
+
+    void checkSpeed()
+    {
+        if (_startTime == 0 && _firstPhotoresistor->checkTurnOff(_potentiometer->getPartValue()))
+        {
+            _startTime = micros();
+            return;
+        }
+
+        if (_startTime != 0 && _secondPhotoresistor->checkTurnOff(_potentiometer->getPartValue()))
+        {
+            _endTime = micros();
+            double speed = tubeLength / (_endTime - _startTime);
+            _speedLCD->printSpeed(speed);
+            _startTime = 0;
+            _endTime = 0;
+        }
     }
 };
 
