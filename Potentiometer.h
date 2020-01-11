@@ -10,16 +10,8 @@ private:
     char _port;
 
 public:
-    Potentiometer(char port)
-    {
-        _port = port;
-    }
-
-    double getPartValue()
-    {
-        int val = analogRead(_port);
-        return (double)val / 1023;
-    }
+    Potentiometer(char port);
+    double getPartValue();
 };
 
 #endif //Potentiometer.h
