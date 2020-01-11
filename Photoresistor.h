@@ -12,19 +12,18 @@ private:
     unsigned long _fullValue;
     double _middleValue;
     char _port;
-    char _lightPercent;
 
     void setMiddleValue();
 
 public:
-    Photoresistor(char port, unsigned int maximalSetupIteration, unsigned int lightPercent);
+    Photoresistor(char port, unsigned int maximalSetupIteration);
     double getPartValue();
     bool getCompleteSetupStatus();
     double getMiddleValue();
     void setValue(double val);
     void nextSetup();
     void reset();
-    bool checkTurnOff();
+    bool checkTurnOff(double lightPercent);
 };
 
 #endif //Photoresistor.h
