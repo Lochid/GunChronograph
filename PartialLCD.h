@@ -11,8 +11,9 @@ private:
     Partial *_partial;
 
 public:
-    PartialLCD(LiquidCrystal_I2C *lcd, Partial *Partial);
-    printPartial();
+    PartialLCD(LiquidCrystal_I2C *lcd);
+    printName(char* name);
+    printPartial(Partial *partial);
 };
 
 #endif //PartialLCD.h
