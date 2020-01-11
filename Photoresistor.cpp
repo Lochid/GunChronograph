@@ -5,17 +5,16 @@ void Photoresistor::setMiddleValue()
     _middleValue = (double)_fullValue / _iterator->getIteration();
 }
 
-Photoresistor::Photoresistor(char port, unsigned int maximalSetupIteration, unsigned int lightPercent)
+Photoresistor::Photoresistor(char port, unsigned int maximalSetupIteration)
 {
     _iterator = new Iterator(maximalSetupIteration);
     _fullValue = 0.0;
     _middleValue = 0.0;
-    _lightPercent = lightPercent;
 }
 
-double Photoresistor::getProgress()
+double Photoresistor::getPartValue()
 {
-    return _iterator->getProgress();
+    return _iterator->getPartValue();
 }
 
 bool Photoresistor::getCompleteSetupStatus()
@@ -48,8 +47,8 @@ void Photoresistor::reset()
     _middleValue = 0.0;
 }
 
-bool Photoresistor::checkTurnOff()
+bool Photoresistor::checkTurnOff(double lightPercent)
 {
     int val = analogRead(_port);
-    return _middleValue - val > _middleValue / 100 * _lightPercent;
+    return (_middleValue - val) / _middleValue > lightPercent;
 }
