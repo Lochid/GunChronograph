@@ -4,6 +4,7 @@
 #include "Iterator.h"
 #include "Partial.h"
 #include "Photoresistor.h"
+#include "Potentiometer.h"
 #include "PartialLCD.h"
 
 #ifndef GunChronograph_h
@@ -14,6 +15,7 @@ class GunChronograph : Partial
 private:
     Photoresistor *_firstPhotoresistor;
     Photoresistor *_secondPhotoresistor;
+    Potentiometer *_potentiometer;
     LiquidCrystal_I2C *_lcd;
     PartialLCD *_partialLCD;
 
@@ -28,6 +30,11 @@ public:
     {
         _firstPhotoresistor = new Photoresistor(firstPort, maximalSetupIteration);
         _secondPhotoresistor = new Photoresistor(secondPort, maximalSetupIteration);
+    }
+
+    initPotentiometer(char port)
+    {
+        _potentiometer = new Potentiometer(port);
     }
 
     startSetupPhotoresistor()
@@ -45,8 +52,18 @@ public:
         return this->getCompleteSetupStatus();
     }
 
+    bool setupPotentiometer()
+    {
+        _partialLCD->printName("sensitivity");
+    }
+
     double getPartValue()
     {
+        if(this->getCompleteSetupStatus())
+        {
+            return _potentiometer->getPartValue();
+        }
+
         return (_firstPhotoresistor->getPartValue() + _secondPhotoresistor->getPartValue()) / 2;
     }
 
