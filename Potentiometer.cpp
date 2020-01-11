@@ -8,5 +8,20 @@ Potentiometer::Potentiometer(char port)
 double Potentiometer::getPartValue()
 {
     int val = analogRead(_port);
-    return (double)val / 1023;
+    return (double)val / _oldPotentional;
+}
+
+bool Potentiometer::wasUpdated()
+{
+    if (_oldPotentional - _newPotentional < 0.01 && _oldPotentional - _newPotentional > -0.01)
+    {
+        _newPotentional = analogRead(_port);
+    }
+
+    return _oldPotentional - _newPotentional > 0.01 || _oldPotentional - _newPotentional < -0.01;
+}
+
+Potentiometer::updatePotentional()
+{
+    _oldPotentional = _newPotentional;
 }
