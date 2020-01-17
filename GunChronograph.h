@@ -63,19 +63,9 @@ public:
         _partialLCD->printName("sensitivity");
     }
 
-    double getPartValue()
+    void checkPotentiometer()
     {
-        if (this->getCompleteSetupStatus())
-        {
-            return _potentiometer->getPartValue();
-        }
-
-        return (_firstPhotoresistor->getPartValue() + _secondPhotoresistor->getPartValue()) / 2;
-    }
-
-    bool getCompleteSetupStatus()
-    {
-        return _firstPhotoresistor->getCompleteSetupStatus() && _secondPhotoresistor->getCompleteSetupStatus();
+        _partialLCD->printPartial((Partial *)this);
     }
 
     void checkSpeed()
@@ -94,6 +84,21 @@ public:
             _startTime = 0;
             _endTime = 0;
         }
+    }
+
+    double getPartValue()
+    {
+        if (this->getCompleteSetupStatus())
+        {
+            return _potentiometer->getPartValue();
+        }
+
+        return (_firstPhotoresistor->getPartValue() + _secondPhotoresistor->getPartValue()) / 2;
+    }
+
+    bool getCompleteSetupStatus()
+    {
+        return _firstPhotoresistor->getCompleteSetupStatus() && _secondPhotoresistor->getCompleteSetupStatus();
     }
 };
 
