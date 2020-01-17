@@ -37,7 +37,7 @@ public:
         _secondPhotoresistor = new Photoresistor(secondPort, maximalSetupIteration);
     }
 
-    initPotentiometer(char port)
+    initPotentiometer(uint8_t port)
     {
         _potentiometer = new Potentiometer(port);
     }
