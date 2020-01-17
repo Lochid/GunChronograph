@@ -1,6 +1,5 @@
 #include <Arduino.h>
-#include <Wire.h>
-#include <LiquidCrystal_I2C.h>
+#include <LiquidCrystal.h>
 #include "Iterator.h"
 #include "Partial.h"
 #include "Photoresistor.h"
@@ -18,16 +17,16 @@ private:
     Photoresistor *_firstPhotoresistor;
     Photoresistor *_secondPhotoresistor;
     Potentiometer *_potentiometer;
-    LiquidCrystal_I2C *_lcd;
+    LiquidCrystal *_lcd;
     PartialLCD *_partialLCD;
     SpeedLCD *_speedLCD;
     unsigned long _startTime = 0;
     unsigned long _endTime = 0;
 
 public:
-    initLCD(uint8_t lcd_addr, uint8_t lcd_cols, uint8_t lcd_rows, uint8_t charsize = LCD_5x8DOTS)
+    initLCD(uint8_t rs, uint8_t enable, uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7)
     {
-        _lcd = new LiquidCrystal_I2C(lcd_addr, lcd_cols, lcd_rows, charsize);
+        _lcd = new LiquidCrystal(rs, enable, d4, d5, d6, d7);
         _partialLCD = new PartialLCD(_lcd);
         _speedLCD = new SpeedLCD(_lcd);
     }

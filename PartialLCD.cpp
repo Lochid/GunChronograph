@@ -1,6 +1,6 @@
 #include "PartialLCD.h"
 
-PartialLCD::PartialLCD(LiquidCrystal_I2C *lcd)
+PartialLCD::PartialLCD(LiquidCrystal *lcd)
 {
     _lcd = lcd;
 }

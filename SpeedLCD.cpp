@@ -1,6 +1,6 @@
 #include "SpeedLCD.h"
 
-SpeedLCD::SpeedLCD(LiquidCrystal_I2C *lcd)
+SpeedLCD::SpeedLCD(LiquidCrystal *lcd)
 {
     _lcd = lcd;
 }
