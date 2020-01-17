@@ -1,3 +1,4 @@
+#include <math.h>
 #include "Photoresistor.h"
 
 void Photoresistor::setMiddleValue()
@@ -50,5 +51,5 @@ void Photoresistor::reset()
 bool Photoresistor::checkTurnOff(double lightPercent)
 {
     int val = analogRead(_port);
-    return (_middleValue - val) / _middleValue > lightPercent;
+    return fabs(_middleValue - val) / _middleValue > lightPercent;
 }
