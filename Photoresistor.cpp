@@ -1,4 +1,5 @@
 #include <math.h>
+#include <Arduino.h>
 #include "Photoresistor.h"
 
 void Photoresistor::setMiddleValue()

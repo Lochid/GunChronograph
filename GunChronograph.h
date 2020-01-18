@@ -68,14 +68,13 @@ public:
         _partialLCD->printPartial((Partial *)this);
     }
 
-    void checkSpeed()
+    bool checkSpeed()
     {
         if (_startTime == 0 && _firstPhotoresistor->checkTurnOff(_potentiometer->getPartValue()))
         {
             _startTime = micros();
-            return;
+            return false;
         }
-
         if (_startTime != 0 && _secondPhotoresistor->checkTurnOff(_potentiometer->getPartValue()))
         {
             _endTime = micros();
@@ -83,7 +82,9 @@ public:
             _speedLCD->printSpeed(speed);
             _startTime = 0;
             _endTime = 0;
+            return true;
         }
+        return false;
     }
 
     double getPartValue()
