@@ -6,24 +6,41 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-Iterator    KEYWORD1
-Photoresistor    KEYWORD1
+GunChronograph  KEYWORD1
+Iterator        KEYWORD1
+Partial         KEYWORD1
+PartialLCD      KEYWORD1
+Photoresistor   KEYWORD1
+Potentiometer   KEYWORD1
+SpeedLCD        KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-getIteration	        KEYWORD2
-getProgress 	        KEYWORD2
-getCompleteStatus	    KEYWORD2
-next            	    KEYWORD2
-reset       		    KEYWORD2
-getSetupProgress       	KEYWORD2
-getCompleteSetupStatus  KEYWORD2
-getMiddleValue       	KEYWORD2
-setValue       		    KEYWORD2
-nextSetup       		KEYWORD2
-checkTurnOff       		KEYWORD2
+initLCD                 KEYWORD2
+initPhotoresistors      KEYWORD2            
+initPotentiometer       KEYWORD2            
+startSetupPhotoresistor KEYWORD2                
+setupPhotoresistor      KEYWORD2            
+setupPotentiometer      KEYWORD2            
+checkPotentiometer      KEYWORD2            
+checkSpeed              KEYWORD2    
+getPartValue            KEYWORD2        
+getCompleteSetupStatus  KEYWORD2                
+getIteration            KEYWORD2        
+getCompleteStatus       KEYWORD2            
+next                    KEYWORD2
+reset                   KEYWORD2
+printName               KEYWORD2    
+printPartial            KEYWORD2        
+getMiddleValue          KEYWORD2        
+setValue                KEYWORD2    
+nextSetup               KEYWORD2    
+checkTurnOff            KEYWORD2        
+wasUpdated              KEYWORD2    
+updatePotentional       KEYWORD2            
+printSpeed              KEYWORD2    
 
 #######################################
 # Constants (LITERAL1)
