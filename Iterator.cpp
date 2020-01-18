@@ -7,7 +7,7 @@ void Iterator::setProgress()
 
 void Iterator::setComplete()
 {
-    _complete = getPartValue() - 1 < 0.001;
+    _complete = getPartValue() - 1 >= 0;
 }
 
 Iterator::Iterator(unsigned int maximalIteration)

@@ -1,4 +1,4 @@
-#include <LiquidCrystal_I2C.h>
+#include <LiquidCrystal.h>
 #include "Partial.h"
 
 #ifndef PartialLCD_h
@@ -7,11 +7,11 @@
 class PartialLCD
 {
 private:
-    LiquidCrystal_I2C *_lcd;
+    LiquidCrystal *_lcd;
     Partial *_partial;
 
 public:
-    PartialLCD(LiquidCrystal_I2C *lcd);
+    PartialLCD(LiquidCrystal *lcd);
     printName(char* name);
     printPartial(Partial *partial);
 };

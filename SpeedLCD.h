@@ -1,4 +1,4 @@
-#include <LiquidCrystal_I2C.h>
+#include <LiquidCrystal.h>
 
 #ifndef SpeedLCD_h
 #define SpeedLCD_h
@@ -6,10 +6,10 @@
 class SpeedLCD
 {
 private:
-    LiquidCrystal_I2C *_lcd;
+    LiquidCrystal *_lcd;
 
 public:
-    SpeedLCD(LiquidCrystal_I2C *lcd);
+    SpeedLCD(LiquidCrystal *lcd);
     printSpeed(double speed);
 };
 

@@ -8,7 +8,7 @@ Potentiometer::Potentiometer(char port)
 double Potentiometer::getPartValue()
 {
     int val = analogRead(_port);
-    return (double)val / _oldPotentional;
+    return (double)val / 1023;
 }
 
 bool Potentiometer::wasUpdated()
